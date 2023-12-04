@@ -5,7 +5,7 @@ from os.path import exists
 
 
 if __name__ == "__main__":
-    with open("certificates.toml") as file:
+    with open("certificates.toml", "rb") as file:
         try:
             toml = tomllib.load(file)
         except tomllib.TOMLDecodeError:
