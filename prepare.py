@@ -18,14 +18,20 @@ if __name__ == "__main__":
             ):
                 print("✅ {name} already exists!")
             else:
-                d_str = " ".join([f"-d {d}" for d in domains])
-                ret = subprocess.call(
-                    f"/snap/bin/certbot certonly --cert-name {name} "
-                    f"--webroot -w /var/www/html {d_str}"
-                )
-                if ret == 0:
+                command = [
+                    "/snap/bin/certbot",
+                    "--certonly",
+                    f"--certname {name}",
+                    "--webroot",
+                    "-w /var/www/html",
+                ]
+                for domain in domains:
+                    command += [f"-d {domain}"]
+                process = subprocess.run(command, capture_output=True)
+                if process.returncode == 0:
                     print(f"✅ {name} is done!")
                 else:
+                    print(process.stderr, file=sys.stderr)
                     print(
                         f"😥 Something went wrong requesting a certificate for {name}.",
                         file=sys.stderr,
