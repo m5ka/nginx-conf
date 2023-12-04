@@ -21,12 +21,14 @@ if __name__ == "__main__":
                 command = [
                     "/snap/bin/certbot",
                     "--certonly",
-                    f"--certname {name}",
+                    "--certname",
+                    name,
                     "--webroot",
-                    "-w /var/www/html",
+                    "-w",
+                    "/var/www/html",
                 ]
                 for domain in domains:
-                    command += [f"-d {domain}"]
+                    command += ["-d", domain]
                 process = subprocess.run(command, capture_output=True)
                 if process.returncode == 0:
                     print(f"✅ {name} is done!")
