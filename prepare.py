@@ -16,7 +16,7 @@ if __name__ == "__main__":
         for name, domains in toml.items():
             if (
                 exists(f"/etc/letsencrypt/live/{name}/fullchain.pem")
-                and exists("/etc/letsencrypt/live/{name}/privkey.pem")
+                and exists(f"/etc/letsencrypt/live/{name}/privkey.pem")
                 and not force_remake
             ):
                 print("✅ {name} already exists!")
