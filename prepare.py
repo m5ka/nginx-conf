@@ -19,7 +19,7 @@ if __name__ == "__main__":
                 and exists(f"/etc/letsencrypt/live/{name}/privkey.pem")
                 and not force_remake
             ):
-                print("✅ {name} already exists!")
+                print(f"✅ {name} already exists!")
             else:
                 command = [
                     "/snap/bin/certbot",
