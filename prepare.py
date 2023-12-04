@@ -29,6 +29,10 @@ if __name__ == "__main__":
                     "--webroot",
                     "-w",
                     "/var/www/html",
+                    "--non-interactive",
+                    "--agree-tos",
+                    "--renew-with-new-domains",
+                    "--expand",
                 ]
                 for domain in domains:
                     command += ["-d", domain]
