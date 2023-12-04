@@ -20,7 +20,7 @@ if __name__ == "__main__":
             else:
                 d_str = " ".join([f"-d {d}" for d in domains])
                 ret = subprocess.call(
-                    f"certbot certonly --cert-name {name} "
+                    f"/snap/bin/certbot certonly --cert-name {name} "
                     f"--webroot -w /var/www/html {d_str}"
                 )
                 if ret == 0:
