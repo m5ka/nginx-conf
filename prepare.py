@@ -20,8 +20,8 @@ if __name__ == "__main__":
             else:
                 command = [
                     "/snap/bin/certbot",
-                    "--certonly",
-                    "--certname",
+                    "certonly",
+                    "--cert-name",
                     name,
                     "--webroot",
                     "-w",
