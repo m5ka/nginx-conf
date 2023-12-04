@@ -5,6 +5,7 @@ from os.path import exists
 
 
 if __name__ == "__main__":
+    force_remake = "--force-remake" in sys.argv
     with open("certificates.toml", "rb") as file:
         try:
             toml = tomllib.load(file)
@@ -13,8 +14,10 @@ if __name__ == "__main__":
             sys.exit(1)
 
         for name, domains in toml.items():
-            if exists(f"/etc/letsencrypt/live/{name}/fullchain.pem") and exists(
-                "/etc/letsencrypt/live/{name}/privkey.pem"
+            if (
+                exists(f"/etc/letsencrypt/live/{name}/fullchain.pem")
+                and exists("/etc/letsencrypt/live/{name}/privkey.pem")
+                and not force_remake
             ):
                 print("✅ {name} already exists!")
             else:
