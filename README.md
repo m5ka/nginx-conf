@@ -11,10 +11,15 @@ this repo stores the nginx configuration for my personal server
 ## ✍️ editing
 you can add more site `.conf` files in the `sites/` directory. they are all automagically included.
 
+### ssl certificates
+
 if you include any new ssl certificates, make sure these are included in `certificates.toml`. this file is in the format of:
+
 ```toml
 certificate_name = ["domain1.example.org", "domain2.example.org"]
 ```
+
+the assumption is that certbot is set up so the certificate files (`fullchain.pem` and `privkey.pem`) will end up in the directory `/etc/letsencrypt/live/{certificate_name}/`.
 
 ## 🚀 deploying
 The `nginx.conf` file from this repository should be used as nginx's config using the `-c` flag. this can be set in nginx's systemd configuration file, for example.
