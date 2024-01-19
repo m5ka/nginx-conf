@@ -3,8 +3,9 @@ this repo stores the nginx configuration for my personal server
 
 ## 🪐 requirements
 * nginx (1.25.1+), compiled with...
-    * [image-filter](https://nginx.org/en/docs/http/ngx_http_image_filter_module.html) (`--with-http_image_filter_module`)
     * [brotli](https://github.com/google/ngx_brotli) (manual install)
+    * [http2](https://nginx.org/en/docs/http/ngx_http_v2_module.html) (`--with-http_v2_module`)
+    * [image-filter](https://nginx.org/en/docs/http/ngx_http_image_filter_module.html) (`--with-http_image_filter_module`)
     * pcre (`--with-pcre`)
     * [ssl](https://nginx.org/en/docs/http/ngx_http_ssl_module.html) (`--with-http_ssl_module`)
 
