@@ -1,4 +1,3 @@
-gitea = ["git.m5ka.dev"]
 go = ["go.m5ka.dev"]
 jenkins = ["ops.m5ka.dev"]
 laenkea = ["wiki.laenkea.si", "www.laenkea.si", "laenkea.si"]
