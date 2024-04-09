@@ -1,7 +1,7 @@
 go = ["go.m5ka.dev"]
 jenkins = ["ops.m5ka.dev"]
 laenkea = ["wiki.laenkea.si", "www.laenkea.si", "laenkea.si"]
-lamilioa = ["www.lamilioa.org", "lamilioa.org"]
+lamilioa = ["sako.lamilioa.org", "www.lamilioa.org", "lamilioa.org"]
 m5ka = ["www.m5ka.dev", "m5ka.dev", "mariab.dev"]
 makkulu = ["lang.kulupu.li"]
 moku = ["www.moku.blog", "moku.blog"]
