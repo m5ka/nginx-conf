@@ -187,7 +187,7 @@ def prepare(names: list[str], force_remake: bool, soon_is_invalid: bool):
                 return
         sites = [s for s in sites if s.name in names]
 
-    for site in sites:
+    for site in sites.values():
         if not prepare_certificate(site, force_remake, soon_is_invalid):
             return
 
