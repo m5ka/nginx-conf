@@ -53,11 +53,11 @@ class Certificate:
             )
         except:
             return CertificateValidity.invalid_ssl
-        if datetime.now() > certificate.not_valid_after:
+        if datetime.now() > certificate.not_valid_after_utc:
             return CertificateValidity.expired
         if soon_to_expire_is_invalid:
             future_date = datetime.now() + timedelta(days=30)
-            if future_date > certificate.not_valid_after:
+            if future_date > certificate.not_valid_after_utc:
                 return CertificateValidity.soon_to_expire
         return CertificateValidity.valid
 
