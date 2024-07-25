@@ -56,7 +56,7 @@ class Certificate:
         if datetime.now(timezone.utc) > certificate.not_valid_after_utc:
             return CertificateValidity.expired
         if soon_to_expire_is_invalid:
-            future_date = timezone.now(timezone.utc) + timedelta(days=30)
+            future_date = datetime.now(timezone.utc) + timedelta(days=30)
             if future_date > certificate.not_valid_after_utc:
                 return CertificateValidity.soon_to_expire
         return CertificateValidity.valid
