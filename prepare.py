@@ -2,7 +2,7 @@ import subprocess
 import sys
 import tomllib
 from dataclasses import dataclass
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from enum import Enum
 from pathlib import Path
 from typing import Self
@@ -53,10 +53,10 @@ class Certificate:
             )
         except:
             return CertificateValidity.invalid_ssl
-        if datetime.now() > certificate.not_valid_after_utc:
+        if datetime.now(timezone.utc) > certificate.not_valid_after_utc:
             return CertificateValidity.expired
         if soon_to_expire_is_invalid:
-            future_date = datetime.now() + timedelta(days=30)
+            future_date = timezone.now(timezone.utc) + timedelta(days=30)
             if future_date > certificate.not_valid_after_utc:
                 return CertificateValidity.soon_to_expire
         return CertificateValidity.valid
