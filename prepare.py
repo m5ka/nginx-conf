@@ -160,7 +160,7 @@ def prepare_certificate(
     default=False,
     help="Count certificates as invalid if they will expire in the next 30 days",
 )
-def prepare(names: list[str], force_remake: bool):
+def prepare(names: list[str], force_remake: bool, soon_is_invalid: bool):
     sites: dict[str, Site] = {}
     with open("certificates.toml", "rb") as file:
         try:
@@ -188,7 +188,7 @@ def prepare(names: list[str], force_remake: bool):
         sites = [s for s in sites if s.name in names]
 
     for site in sites:
-        if not prepare_certificate(site, force_remake):
+        if not prepare_certificate(site, force_remake, soon_is_invalid):
             return
 
 
